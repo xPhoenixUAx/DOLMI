@@ -1,0 +1,134 @@
+.page-hero {
+  padding: clamp(138px, 14vw, 180px) 0 56px;
+}
+
+.page-hero .lead {
+  margin-top: 22px;
+}
+
+.service-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.service-row {
+  position: relative;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr) minmax(230px, 0.35fr);
+  gap: 24px;
+  align-items: center;
+  padding: 34px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.service-row::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  width: 120px;
+  height: 1px;
+  background: var(--cyan);
+  opacity: 0.42;
+}
+
+.service-row:nth-child(2)::after {
+  background: var(--amber);
+}
+
+.service-row:nth-child(3)::after {
+  background: var(--coral);
+}
+
+.service-row img {
+  width: 100%;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.service-row:nth-child(2) img {
+  clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%, 0 32px);
+}
+
+.service-row:nth-child(3) img {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+}
+
+.service-row ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.service-row .tag {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.capability-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.capability-strip span {
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.deliverables {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.deliverable {
+  padding: 24px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.deliverable p {
+  color: var(--muted);
+}
+
+.package-band {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  gap: 22px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.package-band .accent-panel {
+  min-height: 100%;
+}
+
+@media (max-width: 900px) {
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+
+  .deliverables,
+  .package-band {
+    grid-template-columns: 1fr;
+  }
+}
