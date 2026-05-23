@@ -1,13 +1,58 @@
+.about-hero .eyebrow,
+.about-intro-copy .eyebrow,
+.about-capabilities .eyebrow,
+.direction-copy .eyebrow,
+.about-scope-section .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: currentColor;
+  font-size: 0.9rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.about-hero .eyebrow::before,
+.about-hero .eyebrow::after,
+.about-intro-copy .eyebrow::before,
+.about-intro-copy .eyebrow::after,
+.about-capabilities .eyebrow::before,
+.about-capabilities .eyebrow::after,
+.direction-copy .eyebrow::before,
+.direction-copy .eyebrow::after,
+.about-scope-section .eyebrow::before,
+.about-scope-section .eyebrow::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 1px solid currentColor;
+  opacity: 0.5;
+}
+
+.about-hero .eyebrow,
+.about-capabilities .eyebrow,
+.direction-copy .eyebrow {
+  color: #fff;
+}
+
+.about-intro-copy .eyebrow,
+.about-scope-section .eyebrow {
+  color: #050505;
+}
+
 .about-hero {
   position: relative;
   display: grid;
-  min-height: 640px;
+  min-height: 560px;
   align-items: end;
   overflow: hidden;
-  padding: 150px 0 88px;
+  padding: 138px 0 72px;
   color: #fff;
   background:
-    linear-gradient(90deg, rgba(5, 8, 10, 0.94), rgba(5, 8, 10, 0.58)),
+    linear-gradient(90deg, rgba(5, 8, 10, 0.94), rgba(8, 74, 82, 0.56)),
     url("../../img/home/hero-team.webp") center / cover;
 }
 
@@ -24,7 +69,7 @@
   left: 5vw;
   bottom: -0.16em;
   color: rgba(255, 255, 255, 0.08);
-  font-size: clamp(18rem, 34vw, 38rem);
+  font-size: clamp(14rem, 28vw, 31rem);
   font-weight: 950;
   line-height: 0.8;
   letter-spacing: -0.14em;
@@ -38,16 +83,16 @@
 }
 
 .about-hero h1 {
-  max-width: 980px;
-  font-size: clamp(3rem, 6vw, 6.4rem);
-  line-height: 0.96;
-  letter-spacing: -0.065em;
+  max-width: 900px;
+  font-size: clamp(2.65rem, 4.7vw, 5.25rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
 }
 
 .about-hero .lead {
   max-width: 660px;
   margin-top: 26px;
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .about-intro-section,
@@ -80,9 +125,9 @@
 .about-intro-copy h2,
 .direction-copy h2 {
   max-width: 760px;
-  font-size: clamp(2.25rem, 4vw, 4.4rem);
+  font-size: clamp(2rem, 3.25vw, 3.7rem);
   line-height: 1.02;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.045em;
 }
 
 .about-intro-copy .lead {
@@ -105,7 +150,7 @@
 }
 
 .about-proof-list span {
-  color: #0b8795;
+  color: #11889a;
   font-size: 0.86rem;
   font-weight: 850;
 }
@@ -149,7 +194,7 @@
 .studio-card span {
   display: inline-block;
   margin-bottom: 42px;
-  color: #d9f4ff;
+  color: #9bdde5;
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.1em;
@@ -158,7 +203,7 @@
 
 .studio-card h3 {
   color: #fff;
-  font-size: clamp(1.28rem, 2vw, 2rem);
+  font-size: clamp(1.18rem, 1.55vw, 1.62rem);
 }
 
 .studio-card p {
@@ -166,9 +211,44 @@
   color: rgba(255, 255, 255, 0.68);
 }
 
+.about-quote-band {
+  padding: clamp(58px, 7vw, 92px) 0;
+  color: #050505;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(17, 136, 154, 0.13)),
+    #f3f3f1;
+}
+
+.about-quote-band blockquote {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(28px, 6vw, 80px);
+  align-items: end;
+  margin: 0;
+  padding: 0 0 34px;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.16);
+}
+
+.about-quote-band p {
+  max-width: 970px;
+  color: #050505;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.about-quote-band cite {
+  color: #607079;
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 780;
+  white-space: nowrap;
+}
+
 .about-direction {
   color: #fff;
-  background: #202832;
+  background: #070707;
 }
 
 .direction-grid {
@@ -193,10 +273,10 @@
 
 .direction-board div {
   display: grid;
-  min-height: 190px;
+  min-height: 168px;
   align-content: space-between;
   padding: 24px;
-  background: #202832;
+  background: #070707;
 }
 
 .direction-board span {
@@ -206,7 +286,7 @@
 
 .direction-board strong {
   color: #fff;
-  font-size: clamp(2.2rem, 4vw, 4.4rem);
+  font-size: clamp(1.9rem, 3.1vw, 3.35rem);
   line-height: 1;
   letter-spacing: -0.07em;
 }
@@ -214,21 +294,63 @@
 .about-scope-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .about-scope-card {
-  min-height: 270px;
-  padding: 24px;
+  display: grid;
+  grid-template-rows: 150px 1fr;
+  min-height: 390px;
+  overflow: hidden;
+  padding: 0;
   background: #fff;
   border: 1px solid #d9d9d4;
   border-radius: 8px;
 }
 
+.about-scope-card figure {
+  margin: 0;
+  overflow: hidden;
+  background: #d8d8d4;
+}
+
+.about-scope-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.about-scope-card:nth-child(1) img {
+  object-position: 50% 42%;
+}
+
+.about-scope-card:nth-child(2) img {
+  object-position: 50% 44%;
+}
+
+.about-scope-card:nth-child(3) img {
+  object-position: 50% 48%;
+}
+
+.about-scope-card:nth-child(4) img {
+  object-position: 50% 45%;
+}
+
+.about-scope-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.about-scope-card > div {
+  padding: 22px 22px 24px;
+}
+
 .about-scope-card span {
   display: inline-block;
-  margin-bottom: 42px;
-  color: #0b8795;
+  margin-bottom: 34px;
+  color: #11889a;
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.1em;
@@ -237,7 +359,7 @@
 
 .about-scope-card h3 {
   color: #050505;
-  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  font-size: clamp(1.18rem, 1.5vw, 1.52rem);
 }
 
 .about-scope-card p {
@@ -246,7 +368,7 @@
 
 @media (max-width: 940px) {
   .about-hero {
-    min-height: 580px;
+    min-height: 520px;
   }
 
   .about-intro-grid,
@@ -262,11 +384,15 @@
   .about-scope-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .about-quote-band blockquote {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 620px) {
   .about-hero {
-    min-height: 540px;
+    min-height: 500px;
     padding-bottom: 64px;
   }
 
@@ -275,7 +401,7 @@
   }
 
   .about-hero h1 {
-    font-size: clamp(2.5rem, 13vw, 4.1rem);
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
   }
 
   .about-photo {
@@ -293,8 +419,16 @@
     grid-template-columns: 1fr;
   }
 
+  .about-quote-band p {
+    font-size: clamp(1.75rem, 9vw, 2.7rem);
+  }
+
   .studio-card,
   .about-scope-card {
     min-height: auto;
+  }
+
+  .about-scope-card {
+    grid-template-rows: 190px 1fr;
   }
 }
