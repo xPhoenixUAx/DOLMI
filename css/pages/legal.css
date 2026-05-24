@@ -2,7 +2,88 @@
   max-width: 840px;
 }
 
+.legal p,
+.legal li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .legal h2 {
   margin-top: 42px;
   font-size: clamp(1.55rem, 3vw, 2.4rem);
+}
+
+.legal a {
+  color: var(--teal);
+  font-weight: 780;
+}
+
+.legal ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding-left: 22px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 8px;
+}
+
+.legal-meta span {
+  padding: 9px 12px;
+  color: var(--green);
+  background: rgba(96, 122, 79, 0.1);
+  border: 1px solid rgba(96, 122, 79, 0.18);
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 820;
+}
+
+.legal-table-wrap {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.legal table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.legal th,
+.legal td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.legal th {
+  color: var(--ink);
+  background: rgba(18, 22, 27, 0.05);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.legal td {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.legal tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.legal address {
+  margin-top: 16px;
+  color: var(--muted);
+  font-style: normal;
+  line-height: 1.7;
 }
