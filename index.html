@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,17 +8,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;650;750;850&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/common/favicon.svg">
   <link rel="stylesheet" href="css/bundle.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html"><span class="brand-mark">D</span><span>Dolmi</span></a>
+      <a class="brand" href="index.html" aria-label="Dolmi home"><img class="brand-logo" src="img/common/dolmi-logo.svg" width="316" height="86" alt="Dolmi digital studio"></a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
       <nav class="nav-links" aria-label="Main navigation">
         <a aria-current="page" href="index.html">Home</a>
         <a href="about.html">About Us</a>
-        <div class="nav-item has-dropdown"><a href="services.html">Services</a><div class="dropdown-menu"><a href="services.html#websites">Websites for clients</a><a href="services.html#design">Web design</a><a href="services.html#development">Frontend / backend</a><a href="services.html#marketing">SEO & PPC growth</a><a href="services.html#support">Support & maintenance</a></div></div>
+        <div class="nav-item has-dropdown"><a href="services.html">Services</a><div class="dropdown-menu"><a href="brand-systems.html">Brand Systems</a><a href="web-platforms.html">Web Platforms</a><a href="performance-marketing.html">Performance Marketing</a><a href="launch-support.html">Launch Support</a><a href="landing-pages.html">Landing Pages</a><a href="seo-systems.html">SEO Systems</a></div></div>
         <a href="service-detail.html">Process</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -121,7 +122,7 @@
                   <li>Messaging and offer clarity</li>
                   <li>Reusable visual rules for campaigns</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#design"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="brand-systems.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/service-identity.webp" width="1600" height="900" alt="Premium brand system materials arranged in a dark studio"></figure>
@@ -137,7 +138,7 @@
                   <li>Frontend and backend implementation</li>
                   <li>Forms, integrations and deployment</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#development"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="web-platforms.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/service-web-platforms.webp" width="1600" height="900" alt="Responsive website interfaces and development workspace"></figure>
@@ -153,7 +154,7 @@
                   <li>Conversion tracking and GA4 events</li>
                   <li>Landing page testing and optimization</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#marketing"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="performance-marketing.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/service-performance.webp" width="1600" height="900" alt="Dark analytics workspace with campaign dashboards"></figure>
@@ -169,7 +170,7 @@
                   <li>New content blocks and landing pages</li>
                   <li>Ongoing technical and marketing support</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#support"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="launch-support.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/launch-support.webp" width="1448" height="1086" alt="Digital team reviewing website launch and support tasks"></figure>
@@ -185,7 +186,7 @@
                   <li>A/B-ready content sections</li>
                   <li>Fast iteration for active campaigns</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#websites"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="landing-pages.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/web-design-dev.webp" width="1448" height="1086" alt="Website design and landing page planning workspace"></figure>
@@ -201,7 +202,7 @@
                   <li>Service and content page structure</li>
                   <li>Search intent and reporting support</li>
                 </ul>
-                <a class="read-more-btn" href="services.html#marketing"><span>-&gt;</span>Read More</a>
+                <a class="read-more-btn" href="seo-systems.html"><span>-&gt;</span>Read More</a>
               </div>
             </div>
             <figure class="service-accordion-media"><img src="img/services/marketing-analytics.webp" width="1448" height="1086" alt="Marketing analytics and SEO planning materials"></figure>
@@ -464,10 +465,7 @@
   </main>
   <footer class="site-footer">
     <div class="footer-shell">
-      <div class="footer-brandline" aria-label="Dolmi">
-        <div class="footer-mark">D</div>
-        <div class="footer-name">Dolmi</div>
-      </div>
+      <div class="footer-brandline" aria-label="Dolmi"><img class="footer-logo" src="img/common/dolmi-logo.svg" width="316" height="86" alt="Dolmi digital studio"></div>
       <div class="footer-grid">
         <div class="footer-intro">
           <p>DOLMI Slovakia, s.r.o. is a full-cycle digital growth studio creating websites, design systems, development workflows and marketing support for ambitious companies.</p>
@@ -483,21 +481,22 @@
         </nav>
         <nav class="footer-links" aria-label="Services">
           <strong>Services:</strong>
-          <a href="services.html#websites">Website Creation</a>
-          <a href="services.html#design">Web Design</a>
-          <a href="services.html#development">Frontend / Backend</a>
-          <a href="services.html#marketing">Digital Marketing</a>
-          <a href="services.html#support">Support & Maintenance</a>
+          <a href="brand-systems.html">Brand Systems</a>
+          <a href="web-platforms.html">Web Platforms</a>
+          <a href="performance-marketing.html">Performance Marketing</a>
+          <a href="launch-support.html">Launch Support</a>
+          <a href="landing-pages.html">Landing Pages</a>
+          <a href="seo-systems.html">SEO Systems</a>
         </nav>
         <div class="footer-contact">
           <strong>Get in Touch:</strong>
-          <span><i aria-hidden="true">◎</i>Karpatské námestie 10, 831 06 Bratislava, Slovakia</span>
-          <a href="mailto:support@dolmidigital.com"><i aria-hidden="true">✉</i>support@dolmidigital.com</a>
-          <span><i aria-hidden="true">◷</i>Mon - Fri: 9:00 - 18:00</span>
+          <span><i aria-hidden="true">?</i>Karpatske namestie 10, 831 06 Bratislava, Slovakia</span>
+          <a href="mailto:support@dolmidigital.com"><i aria-hidden="true">?</i>support@dolmidigital.com</a>
+          <span><i aria-hidden="true">?</i>Mon - Fri: 9:00 - 18:00</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 DOLMI Slovakia, s.r.o. All rights reserved.</p>
+        <p>� 2026 DOLMI Slovakia, s.r.o. All rights reserved.</p>
         <nav aria-label="Legal links">
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
@@ -510,5 +509,6 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
 
 

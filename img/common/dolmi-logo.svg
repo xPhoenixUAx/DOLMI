@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="316" height="86" viewBox="0 0 316 86" role="img" aria-labelledby="title desc">
+  <title id="title">Dolmi logo</title>
+  <desc id="desc">A custom Dolmi digital studio wordmark with an abstract flowing D symbol.</desc>
+  <defs>
+    <linearGradient id="dolmiMark" x1="8" y1="74" x2="100" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FFFF"/>
+      <stop offset="0.48" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#84E6EC"/>
+    </linearGradient>
+    <linearGradient id="dolmiAccent" x1="17" y1="75" x2="96" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23AEBF"/>
+      <stop offset="1" stop-color="#B9F5F8"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 68C25 28 48 9 74 16c23 6 36 30 26 49-9 18-33 24-55 12" stroke="#FFFFFF" stroke-opacity=".26" stroke-width="3"/>
+    <path d="M24 67V18h24c29 0 51 20 51 43 0 20-17 29-43 29H24" stroke="url(#dolmiMark)" stroke-width="12"/>
+    <path d="M48 67 82 22" stroke="url(#dolmiAccent)" stroke-width="9"/>
+    <path d="M34 42c9-13 26-17 39-8 13 8 14 25 3 33" stroke="#0B161B" stroke-opacity=".52" stroke-width="4"/>
+    <circle cx="92" cy="18" r="5.5" fill="#23AEBF" stroke="none"/>
+  </g>
+  <g fill="#FFFFFF">
+    <text x="122" y="50" font-family="Inter, Arial, Helvetica, sans-serif" font-size="43" font-weight="850" letter-spacing="-2.4">Dolmi</text>
+    <text x="126" y="70" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9.5" font-weight="800" letter-spacing="4.2" opacity=".68">DIGITAL STUDIO</text>
+  </g>
+  <path d="M122 60h122" stroke="#23AEBF" stroke-width="2" stroke-linecap="round" opacity=".72"/>
+</svg>

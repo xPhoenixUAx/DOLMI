@@ -503,24 +503,27 @@ svg.principle-icon {
 
 .more-services-btn,
 .read-more-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 13px;
   width: fit-content;
   color: #fff;
   font-weight: 850;
+  overflow: hidden;
 }
 
 .more-services-btn {
   justify-self: end;
   min-height: 52px;
-  padding: 5px 22px 5px 5px;
+  padding: 5px 66px 5px 66px;
   background: rgba(255, 255, 255, 0.14);
   border-radius: 999px;
 }
 
 .more-services-btn span,
 .read-more-btn span {
+  position: absolute;
+  left: 5px;
   display: grid;
   width: 40px;
   height: 40px;
@@ -529,6 +532,11 @@ svg.principle-icon {
   background: #fff;
   border-radius: 50%;
   font-size: 1.25rem;
+  transition: left 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms ease;
+}
+
+.more-services-btn:hover span {
+  left: calc(100% - 45px);
 }
 
 .service-accordion {
@@ -650,14 +658,19 @@ svg.principle-icon {
 
 .read-more-btn {
   min-height: 42px;
-  padding: 4px 16px 4px 4px;
+  padding: 4px 52px 4px 52px;
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 999px;
 }
 
 .read-more-btn span {
+  left: 4px;
   width: 32px;
   height: 32px;
+}
+
+.read-more-btn:hover span {
+  left: calc(100% - 36px);
 }
 
 .service-accordion-media {
@@ -946,14 +959,14 @@ svg.principle-icon {
 }
 
 .pricing-cta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
   width: fit-content;
   min-height: 38px;
   margin: auto auto 6px;
-  padding: 4px 4px 4px 22px;
+  padding: 4px 50px 4px 50px;
   color: #060606;
   background: #fff;
   border-radius: 999px;
@@ -962,6 +975,7 @@ svg.principle-icon {
   font-size: 0.9rem;
   line-height: 1;
   box-shadow: 0 8px 22px rgba(15, 18, 20, 0.045);
+  overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -971,6 +985,8 @@ svg.principle-icon {
 }
 
 .pricing-cta svg {
+  position: absolute;
+  left: 4px;
   width: 30px;
   height: 30px;
   padding: 8px;
@@ -978,6 +994,11 @@ svg.principle-icon {
   background: #020202;
   border-radius: 50%;
   flex: 0 0 auto;
+  transition: left 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms ease;
+}
+
+.pricing-cta:hover svg {
+  left: calc(100% - 34px);
 }
 
 .pricing-note {
@@ -1967,12 +1988,12 @@ svg.principle-icon {
 }
 
 .cta-form button {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   width: fit-content;
   min-height: 40px;
-  padding: 4px 17px 4px 4px;
+  padding: 4px 54px 4px 56px;
   color: #080808;
   background: #fff;
   border: 0;
@@ -1981,6 +2002,7 @@ svg.principle-icon {
   font-weight: 780;
   font-size: 0.92rem;
   cursor: pointer;
+  overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -1990,6 +2012,8 @@ svg.principle-icon {
 }
 
 .cta-form button span {
+  position: absolute;
+  left: 4px;
   display: grid;
   width: 32px;
   height: 32px;
@@ -1997,6 +2021,11 @@ svg.principle-icon {
   color: #fff;
   background: #050505;
   border-radius: 50%;
+  transition: left 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms ease;
+}
+
+.cta-form button:hover span {
+  left: calc(100% - 36px);
 }
 
 .cta-form .form-status {

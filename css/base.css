@@ -85,7 +85,7 @@ select {
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -93,6 +93,13 @@ select {
   background: linear-gradient(180deg, rgba(19, 82, 90, 0.62), rgba(19, 82, 90, 0));
   border-bottom: 0;
   color: #fff;
+  transition: background 220ms ease, backdrop-filter 220ms ease, box-shadow 220ms ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(7, 7, 7, 0.72);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
 }
 
 .nav {
@@ -111,24 +118,16 @@ select {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: #fff;
-  font-size: clamp(1.35rem, 2.1vw, 2rem);
-  font-weight: 850;
-  letter-spacing: 0;
+  width: clamp(150px, 13vw, 190px);
+  height: 52px;
   white-space: nowrap;
 }
 
-.brand-mark {
-  display: grid;
-  width: 43px;
-  height: 43px;
-  place-items: center;
-  color: var(--ink);
-  background: #fff;
-  border-radius: 50%;
-  font-size: 1.28rem;
-  font-weight: 900;
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav-links {
@@ -632,25 +631,13 @@ h3 {
   position: relative;
   display: flex;
   align-items: flex-end;
-  gap: clamp(18px, 2.6vw, 34px);
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-.footer-mark {
-  color: rgba(255, 255, 255, 0.14);
-  font-size: clamp(7rem, 12vw, 13rem);
-  font-weight: 950;
-  line-height: 0.72;
-  letter-spacing: -0.12em;
-}
-
-.footer-name {
-  color: #fff;
-  font-size: clamp(4rem, 7.4vw, 8.2rem);
-  font-weight: 950;
-  line-height: 0.78;
-  letter-spacing: -0.08em;
+.footer-logo {
+  width: min(520px, 100%);
+  height: auto;
 }
 
 .footer-grid {
@@ -669,18 +656,21 @@ h3 {
 }
 
 .footer-talk {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
   margin-top: 28px;
-  padding: 5px 22px 5px 5px;
+  padding: 5px 62px 5px 62px;
   color: #fff;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   font-weight: 850;
+  overflow: hidden;
 }
 
 .footer-talk span {
+  position: absolute;
+  left: 5px;
   display: grid;
   width: 35px;
   height: 35px;
@@ -688,6 +678,11 @@ h3 {
   color: #050505;
   background: #fff;
   border-radius: 50%;
+  transition: left 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms ease;
+}
+
+.footer-talk:hover span {
+  left: calc(100% - 40px);
 }
 
 .footer-links {

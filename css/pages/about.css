@@ -294,24 +294,36 @@
 .about-scope-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .about-scope-card {
-  display: grid;
-  grid-template-rows: 150px 1fr;
-  min-height: 390px;
+  position: relative;
+  min-height: 430px;
   overflow: hidden;
   padding: 0;
-  background: #fff;
-  border: 1px solid #d9d9d4;
+  color: #fff;
+  background: #070707;
+  border: 0;
   border-radius: 8px;
 }
 
 .about-scope-card figure {
+  position: absolute;
+  inset: 0;
   margin: 0;
   overflow: hidden;
-  background: #d8d8d4;
+  background: #070707;
+}
+
+.about-scope-card figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.58)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent 62%);
+  pointer-events: none;
 }
 
 .about-scope-card img {
@@ -344,13 +356,21 @@
 }
 
 .about-scope-card > div {
-  padding: 22px 22px 24px;
+  position: absolute;
+  inset: auto 12px 12px;
+  z-index: 1;
+  min-height: 210px;
+  padding: 20px;
+  background: rgba(7, 7, 7, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 7px;
+  backdrop-filter: blur(10px);
 }
 
 .about-scope-card span {
   display: inline-block;
-  margin-bottom: 34px;
-  color: #11889a;
+  margin-bottom: 40px;
+  color: #9bdde5;
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.1em;
@@ -358,12 +378,13 @@
 }
 
 .about-scope-card h3 {
-  color: #050505;
+  color: #fff;
   font-size: clamp(1.18rem, 1.5vw, 1.52rem);
 }
 
 .about-scope-card p {
   margin-top: 14px;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 940px) {
@@ -429,6 +450,6 @@
   }
 
   .about-scope-card {
-    grid-template-rows: 190px 1fr;
+    min-height: 420px;
   }
 }

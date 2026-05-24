@@ -1,5 +1,15 @@
 const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
+const header = document.querySelector(".site-header");
+
+if (header) {
+  const updateHeader = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+}
 
 if (toggle && links) {
   toggle.addEventListener("click", () => {
@@ -24,10 +34,58 @@ const observer = new IntersectionObserver(
 reveals.forEach((item) => observer.observe(item));
 
 const forms = document.querySelectorAll("[data-contact-form]");
+const faqLists = document.querySelectorAll("[data-faq-list]");
 
 if (window.lucide) {
   window.lucide.createIcons();
 }
+
+faqLists.forEach((faqList) => {
+  const items = [...faqList.querySelectorAll("details")];
+
+  const setAnswerHeight = (item) => {
+    const answer = item.querySelector(".faq-answer");
+    if (!answer) return;
+    answer.style.height = item.open ? `${answer.scrollHeight}px` : "0px";
+  };
+
+  items.forEach((item) => {
+    const summary = item.querySelector("summary");
+    const answer = item.querySelector(".faq-answer");
+    if (!summary || !answer) return;
+
+    setAnswerHeight(item);
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (item.open) {
+        answer.style.height = `${answer.scrollHeight}px`;
+        item.classList.add("is-closing");
+
+        window.requestAnimationFrame(() => {
+          answer.style.height = "0px";
+        });
+
+        window.setTimeout(() => {
+          item.open = false;
+          item.classList.remove("is-closing");
+        }, 360);
+      } else {
+        item.open = true;
+        answer.style.height = "0px";
+
+        window.requestAnimationFrame(() => {
+          answer.style.height = `${answer.scrollHeight}px`;
+        });
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    items.forEach(setAnswerHeight);
+  });
+});
 
 const serviceAccordion = document.querySelector("[data-service-accordion]");
 

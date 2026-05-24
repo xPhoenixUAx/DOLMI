@@ -1,18 +1,99 @@
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(132px, 13vw, 176px) 0 clamp(54px, 8vw, 92px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 84% 24%, rgba(20, 124, 145, 0.52), transparent 34%),
+    linear-gradient(115deg, rgba(8, 30, 35, 0.98), rgba(18, 91, 101, 0.86)),
+    #0b1115;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  left: clamp(20px, 6vw, 92px);
+  bottom: -88px;
+  width: 420px;
+  height: 190px;
+  border: 48px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.46fr);
+  gap: clamp(28px, 7vw, 98px);
+  align-items: end;
+}
+
+.contact-hero h1 {
+  max-width: 860px;
+  font-size: clamp(2.3rem, 4.65vw, 4.8rem);
+  line-height: 0.98;
+}
+
+.contact-hero .lead {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+}
+
+.contact-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.contact-kicker span {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-kicker-dark {
+  color: #050505;
+}
+
+.contact-kicker-dark span {
+  border-color: rgba(0, 0, 0, 0.42);
+  background: linear-gradient(135deg, #fff, #b8c4c7);
+}
+
+.contact-main,
+.contact-map-section {
+  background: #f3f3f1;
+}
+
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(310px, 0.42fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 0.78fr) minmax(330px, 0.42fr);
+  gap: clamp(24px, 5vw, 58px);
   align-items: start;
 }
 
 .contact-form {
   display: grid;
   gap: 16px;
-  padding: 0 0 0 28px;
-  border: 0;
-  border-left: 2px solid var(--cyan);
-  border-radius: 0;
-  background: transparent;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.contact-form-head {
+  margin-bottom: 6px;
+}
+
+.contact-form-head h2 {
+  max-width: 720px;
+  font-size: clamp(1.85rem, 3vw, 3.25rem);
 }
 
 .field {
@@ -21,7 +102,9 @@
 }
 
 .field label {
-  font-weight: 760;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
 .field input,
@@ -30,49 +113,177 @@
   width: 100%;
   min-height: 50px;
   padding: 12px 14px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(18, 22, 27, 0.16);
   border-radius: 6px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.86);
   color: var(--ink);
+  outline: 0;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .field textarea {
-  min-height: 150px;
+  min-height: 156px;
   resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: rgba(20, 124, 145, 0.62);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(20, 124, 145, 0.08);
+}
+
+.contact-submit {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 6px;
+  padding: 4px 62px;
+  overflow: hidden;
+  color: #fff;
+  background: #050505;
+  border: 1px solid #050505;
+  border-radius: 999px;
+  font-weight: 850;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-submit span {
+  position: absolute;
+  left: 5px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #050505;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(18, 22, 27, 0.12);
+}
+
+.contact-submit:hover span {
+  left: calc(100% - 39px);
 }
 
 .form-status {
   min-height: 24px;
+  margin: 0;
   color: var(--green);
   font-weight: 760;
 }
 
 .contact-aside {
-  padding: 28px;
-  background: #252c33;
+  position: sticky;
+  top: 116px;
+  padding: clamp(24px, 3.2vw, 34px);
   color: #fff;
+  background:
+    linear-gradient(140deg, rgba(32, 40, 50, 0.98), rgba(15, 24, 30, 0.96)),
+    #202832;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.contact-aside dt {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.88rem;
-}
-
-.contact-aside a {
+.contact-aside h2 {
+  margin-bottom: 26px;
   color: #fff;
+  font-size: clamp(2rem, 3vw, 3.1rem);
 }
 
 .contact-aside dl {
   margin: 0;
 }
 
+.contact-aside dt {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
 .contact-aside dd {
-  margin: 5px 0 18px;
+  margin: 6px 0 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 780;
+  line-height: 1.45;
+}
+
+.contact-aside a {
+  color: #fff;
+}
+
+.contact-map-section {
+  padding-top: 0;
+}
+
+.contact-map-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  gap: clamp(26px, 6vw, 80px);
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.contact-map-head h2 {
+  max-width: 780px;
+  font-size: clamp(1.9rem, 3.2vw, 3.5rem);
+}
+
+.contact-map-head p {
+  margin: 0;
+  color: var(--muted);
   font-weight: 780;
 }
 
-@media (max-width: 860px) {
-  .contact-layout {
+.contact-map {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(300px, 42vw, 520px);
+  border: 1px solid var(--line);
+  background: #d8d8d4;
+  clip-path: polygon(0 0, calc(100% - 42px) 0, 100% 42px, 100% 100%, 0 100%);
+}
+
+.contact-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.24) contrast(1.04) saturate(0.86);
+}
+
+@media (max-width: 900px) {
+  .contact-hero-grid,
+  .contact-layout,
+  .contact-map-head {
     grid-template-columns: 1fr;
+  }
+
+  .contact-aside {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-hero {
+    padding-top: 124px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.15rem, 11vw, 3.45rem);
+  }
+
+  .contact-form,
+  .contact-aside {
+    padding: 22px;
   }
 }
