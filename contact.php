@@ -19,7 +19,7 @@ $fields = [
     'website' => trim((string)($_POST['website'] ?? '')),
 ];
 
-$safeName = str_replace(["\r", "\n"], '', $fields['name']);
+$safeName = str_replace(["\r", "\n"], '', $fields['name'] ?: 'Website visitor');
 $safeEmail = str_replace(["\r", "\n"], '', $fields['email']);
 
 if ($fields['website'] !== '') {
@@ -27,23 +27,28 @@ if ($fields['website'] !== '') {
     exit;
 }
 
-if ($fields['name'] === '' || $fields['message'] === '' || !filter_var($fields['email'], FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($fields['email'], FILTER_VALIDATE_EMAIL)) {
     http_response_code(422);
-    echo json_encode(['message' => 'Please complete the required fields correctly.']);
+    echo json_encode(['message' => 'Please enter a valid email address.']);
     exit;
 }
+
+$displayName = $fields['name'] !== '' ? $fields['name'] : 'Website visitor';
+$message = $fields['message'] !== ''
+    ? $fields['message']
+    : 'Short CTA request. Please contact this visitor by email.';
 
 $subject = 'New strategy request from Dolmi website';
 $body = implode("\n", [
     'New enquiry from dolmidigital.com',
     '',
-    'Name: ' . $fields['name'],
+    'Name: ' . $displayName,
     'Email: ' . $fields['email'],
     'Company: ' . ($fields['company'] ?: 'Not provided'),
     'Service: ' . ($fields['service'] ?: 'Not selected'),
     '',
     'Message:',
-    $fields['message'],
+    $message,
 ]);
 
 $headers = [
