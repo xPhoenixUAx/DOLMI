@@ -2,6 +2,57 @@ const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
 const header = document.querySelector(".site-header");
 
+const initPageLoader = () => {
+  if (document.querySelector(".page-loader")) return;
+
+  const loader = document.createElement("div");
+  loader.className = "page-loader";
+  loader.setAttribute("aria-hidden", "true");
+  loader.innerHTML = `
+    <div class="page-loader-logo">
+      <img src="img/common/dolmi-logo.svg" width="316" height="86" alt="">
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  const showLoader = () => {
+    document.body.classList.add("page-transitioning");
+    loader.classList.add("is-active");
+  };
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link || event.defaultPrevented) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+
+    const href = link.getAttribute("href") || "";
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return;
+
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.hash) return;
+
+    event.preventDefault();
+    showLoader();
+    window.setTimeout(() => {
+      window.location.href = url.href;
+    }, 460);
+  });
+
+  window.addEventListener("pageshow", () => {
+    document.body.classList.remove("page-transitioning");
+    loader.classList.remove("is-active");
+  });
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPageLoader);
+} else {
+  initPageLoader();
+}
+
 if (header) {
   const updateHeader = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 24);
