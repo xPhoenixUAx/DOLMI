@@ -6,3 +6,47 @@
 @import url("./pages/about.css");
 @import url("./pages/contact.css");
 @import url("./pages/legal.css");
+
+.btn,
+.header-cta,
+.footer-talk,
+.read-more-btn,
+.more-services-btn,
+.service-link,
+.single-service-btn,
+.process-hero-link,
+.process-sidebar-btn,
+.pricing-cta,
+.cta-form button,
+.contact-submit {
+  transition-duration: 420ms !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.footer-talk span,
+.read-more-btn span,
+.more-services-btn span,
+.service-link span,
+.single-service-btn span,
+.process-hero-link span,
+.process-sidebar-btn span,
+.cta-form button span,
+.contact-submit span {
+  transition-duration: 520ms !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn:hover,
+.header-cta:hover,
+.footer-talk:hover,
+.read-more-btn:hover,
+.more-services-btn:hover,
+.service-link:hover,
+.single-service-btn:hover,
+.process-hero-link:hover,
+.process-sidebar-btn:hover,
+.pricing-cta:hover,
+.cta-form button:hover,
+.contact-submit:hover {
+  transform: translateY(-1px);
+}
