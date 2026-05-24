@@ -2393,8 +2393,9 @@ svg.principle-icon {
     grid-auto-flow: column;
     grid-template-columns: none;
     gap: 14px;
-    width: calc(100% + 32px);
-    margin: 0 -16px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 0 16px 12px;
     overflow-x: auto;
     overscroll-behavior-x: contain;

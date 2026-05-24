@@ -412,6 +412,10 @@
 }
 
 @media (max-width: 620px) {
+  .about-direction {
+    padding: 48px 0;
+  }
+
   .about-hero {
     min-height: 500px;
     padding-bottom: 64px;
@@ -425,6 +429,43 @@
     font-size: clamp(2.25rem, 11vw, 3.5rem);
   }
 
+  .direction-grid {
+    gap: 26px;
+  }
+
+  .direction-copy .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .direction-copy h2 {
+    font-size: clamp(1.85rem, 8.5vw, 2.45rem);
+    line-height: 1.04;
+  }
+
+  .direction-copy .lead {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    line-height: 1.52;
+  }
+
+  .direction-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .direction-board div {
+    min-height: 112px;
+    padding: 16px;
+  }
+
+  .direction-board span {
+    font-size: 0.84rem;
+    line-height: 1.25;
+  }
+
+  .direction-board strong {
+    font-size: 1.85rem;
+  }
+
   .about-photo {
     height: 430px;
   }
@@ -434,10 +475,59 @@
     gap: 8px;
   }
 
-  .studio-grid,
-  .about-scope-grid,
-  .direction-board {
-    grid-template-columns: 1fr;
+  .studio-grid {
+    display: grid;
+    grid-auto-columns: minmax(282px, 86vw);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 14px 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-left: 0;
+  }
+
+  .studio-grid::after {
+    content: "";
+    width: 1px;
+  }
+
+  .studio-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-scope-grid {
+    display: grid;
+    grid-auto-columns: minmax(282px, 86vw);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    gap: 14px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 14px 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .about-scope-grid::after {
+    content: "";
+    width: 1px;
+  }
+
+  .about-scope-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .about-quote-band p {
@@ -449,7 +539,16 @@
     min-height: auto;
   }
 
+  .studio-card {
+    min-height: 280px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
   .about-scope-card {
     min-height: 420px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 }

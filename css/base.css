@@ -38,6 +38,7 @@ body {
     var(--paper);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 body.nav-open {
