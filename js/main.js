@@ -12,9 +12,51 @@ if (header) {
 }
 
 if (toggle && links) {
+  const dropdownItems = [...links.querySelectorAll(".has-dropdown")];
+
+  if (!links.querySelector(".mobile-menu-note")) {
+    const mobileNote = document.createElement("div");
+    mobileNote.className = "mobile-menu-note";
+    mobileNote.innerHTML = `
+      <img src="img/common/dolmi-logo.svg" width="316" height="86" alt="Dolmi digital studio">
+      <p>Full-cycle digital studio for brand systems, websites, campaigns and long-term support.</p>
+    `;
+    links.appendChild(mobileNote);
+  }
+
+  const closeMenu = () => {
+    links.classList.remove("is-open");
+    toggle.classList.remove("is-active");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+    dropdownItems.forEach((item) => item.classList.remove("is-open"));
+  };
+
   toggle.addEventListener("click", () => {
     const isOpen = links.classList.toggle("is-open");
+    toggle.classList.toggle("is-active", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", isOpen);
+  });
+
+  links.addEventListener("click", (event) => {
+    const dropdownLink = event.target.closest(".has-dropdown > a");
+    if (dropdownLink && window.matchMedia("(max-width: 860px)").matches) {
+      event.preventDefault();
+      const item = dropdownLink.closest(".has-dropdown");
+      item?.classList.toggle("is-open");
+      return;
+    }
+
+    if (event.target.closest("a")) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
   });
 }
 
@@ -442,6 +484,147 @@ if (pricingToggle) {
   buttons.forEach((button) => {
     button.addEventListener("click", () => setPeriod(button.dataset.period));
   });
+}
+
+const experienceBars = document.querySelector(".experience-bars");
+const experienceProof = document.querySelector(".experience-dark");
+
+if (experienceBars && experienceProof) {
+  const rows = [...experienceBars.querySelectorAll(".metric-row")];
+  const proofImage = experienceProof.querySelector("img");
+  const proofText = experienceProof.querySelector("p");
+  const proofNumber = experienceProof.querySelector(".experience-number");
+  let proofTimer;
+  let activeProofIndex = -1;
+  const proofItems = [
+    {
+      title: "Website systems",
+      value: 96,
+      score: "4.9/5",
+      image: "img/services/service-web-platforms.webp",
+      alt: "Responsive website interfaces prepared for launch",
+      text: 'More than <strong>40+</strong> website, landing page and campaign support projects shaped into practical launch systems.'
+    },
+    {
+      title: "UX/UI design",
+      value: 90,
+      score: "4.8/5",
+      image: "img/about/scope/design.webp",
+      alt: "Interface design boards and digital layouts",
+      text: 'Clear interface systems, mobile layouts and visual flows shaped for <strong>faster decisions</strong> and easier handoff.'
+    },
+    {
+      title: "Development",
+      value: 86,
+      score: "4.8/5",
+      image: "img/services/web-design-dev.webp",
+      alt: "Development workspace with website implementation screens",
+      text: 'Frontend, backend, forms and deployment details connected into <strong>stable builds</strong> that can keep evolving.'
+    },
+    {
+      title: "Launch support",
+      value: 74,
+      score: "4.7/5",
+      image: "img/services/launch-support.webp",
+      alt: "Website launch support and maintenance workspace",
+      text: 'Post-launch QA, content updates and campaign additions keep projects moving after the <strong>first release</strong>.'
+    }
+  ];
+
+  const animateValue = (element, target) => {
+    if (!element) return;
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      element.textContent = `${Math.round(target * eased)}%`;
+      if (progress < 1) {
+        window.requestAnimationFrame(tick);
+      }
+    };
+
+    window.requestAnimationFrame(tick);
+  };
+
+  const animateScore = (element, score) => {
+    if (!element) return;
+    const target = Number.parseFloat(score);
+    if (Number.isNaN(target)) {
+      element.textContent = score;
+      return;
+    }
+
+    const duration = 960;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      element.textContent = `${(target * eased).toFixed(1)}/5`;
+      if (progress < 1) {
+        window.requestAnimationFrame(tick);
+      }
+    };
+
+    window.requestAnimationFrame(tick);
+  };
+
+  const activateProof = (index) => {
+    const item = proofItems[index];
+    if (!item) return;
+    if (activeProofIndex === index) return;
+    activeProofIndex = index;
+
+    rows.forEach((row, rowIndex) => row.classList.toggle("is-dark", rowIndex === index));
+    experienceProof.classList.add("is-switching");
+    window.clearTimeout(proofTimer);
+
+    proofTimer = window.setTimeout(() => {
+      if (proofImage) {
+        proofImage.src = item.image;
+        proofImage.alt = item.alt;
+      }
+      if (proofText) proofText.innerHTML = item.text;
+      animateScore(proofNumber, item.score);
+      window.requestAnimationFrame(() => {
+        experienceProof.classList.remove("is-switching");
+      });
+    }, 180);
+
+    const number = rows[index]?.querySelector("strong");
+    if (!rows[index]?.classList.contains("is-animated")) {
+      rows[index]?.classList.add("is-animated");
+    }
+    animateValue(number, item.value);
+  };
+
+  rows.forEach((row, index) => {
+    row.tabIndex = 0;
+    row.querySelector("strong").textContent = "0%";
+    row.addEventListener("mouseenter", () => activateProof(index));
+    row.addEventListener("focus", () => activateProof(index));
+  });
+
+  const barObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        rows.forEach((row, index) => {
+          window.setTimeout(() => {
+            row.classList.add("is-animated");
+            animateValue(row.querySelector("strong"), proofItems[index].value);
+          }, index * 120);
+        });
+        activateProof(0);
+        barObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.28 }
+  );
+
+  barObserver.observe(experienceBars);
 }
 
 const testimonialSlider = document.querySelector("[data-testimonials]");
